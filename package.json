@@ -1,0 +1,17 @@
+{
+  "name": "dropped-alexa-skill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "compile": "zip -r ../DroppedAlexaSkill.zip *"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alexa-sdk": "^1.0.10",
+    "request": "^2.81.0"
+  }
+}

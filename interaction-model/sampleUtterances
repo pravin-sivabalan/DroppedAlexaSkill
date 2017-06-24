@@ -1,0 +1,15 @@
+DefaultIntent what music dropped today
+DefaultIntent new music
+DefaultIntent new
+DefaultIntent what is popping today
+DefaultIntent what's new
+LimitIntent {Limit} new songs that came out
+LimitIntent {Limit} new songs that came dropped
+LimitIntent {Limit} new
+LimitIntent {Limit} songs
+LimitIntent {Limit} albums
+GenreIntent what new {Genre} is dropping today
+GenreIntent what new {Genre} is dropped today
+GenreIntent new {Genre} songs
+GenreIntent {Genre} songs
+GenreIntent new {Genre}

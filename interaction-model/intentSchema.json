@@ -1,0 +1,25 @@
+{
+  "intents": [
+    {
+      "intent": "DefaultIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "Limit",
+          "type": "AMAZON.NUMBER"
+        }
+      ],
+      "intent": "LimitIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "Genre",
+          "type": "LIST_OF_GENRES"
+        }
+      ],
+      "intent": "GenreIntent"
+    }
+  ]
+}
