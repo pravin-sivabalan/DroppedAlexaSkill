@@ -51,14 +51,26 @@ var handlers = {
       });
     },
 
-    "AMAZON.HelpIntent": function(){
+    'LaunchRequest': function(){
+      request.get('https://rss.itunes.apple.com/api/v1/us/apple-music/new-music/5/explicit/json', (err, response, body) => {
+        if(err || response.statusCode != 200) return this.emit(':tell', 'I am having some issues connecting to external services');
+        var results = JSON.parse(body).feed.results;
         var speechOutput = "";
-        speechOutput += "Here are some things you can say: ";
-        speechOutput += "Alexa ask dropped what new music came out today. ";
-        speechOutput += "Alexa ask dropped 5 new song. ";
-        speechOutput += "Alexa ask dropped new hip hop songs. ";
-        speechOutput += "So how can I help?";
-        this.emit(':ask', speechOutput, speechOutput);
+        for(result of results){
+          speechOutput += result.artistName + ' released a new ' + result.kind + ' '  + result.name + '. ';
+        }
+        return this.emit(':tell', speechOutput);
+      });
+    },
+
+    "AMAZON.HelpIntent": function(){
+      var speechOutput = "";
+      speechOutput += "Here are some things you can say: ";
+      speechOutput += "Alexa, open Dropped Music. ";
+      speechOutput += "Alexa, ask Dropped Music what's new. ";
+      speechOutput += "Alexa, ask Dropped for new Rap songs. ";
+      speechOutput += "So how can I help?";
+      this.emit(':ask', speechOutput, speechOutput);
     },
 
     "AMAZON.StopIntent": function(){
@@ -67,7 +79,17 @@ var handlers = {
 
     "AMAZON.CancelIntent": function(){
         this.emit(':tell', "Goodbye");
-    }
+    },
+
+    'Unhandled': function () {
+      var speechOutput = "";
+      speechOutput += "Here are some things you can say: ";
+      speechOutput += "Alexa, open Dropped Music. ";
+      speechOutput += "Alexa, ask Dropped Music what's new. ";
+      speechOutput += "Alexa, ask Dropped for new Rap songs. ";
+      speechOutput += "So how can I help?";
+      this.emit(':ask', speechOutput, speechOutput);
+  }
 };
 
 exports.handler = function (event, context) {
