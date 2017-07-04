@@ -2,7 +2,7 @@ var Alexa = require('alexa-sdk');
 var request = require('request');
 var lambdaConfig = require('./configs/lambda-config.json');
 
-const skillName = 'Dropped';
+const skillName = 'Dropped Music';
 
 var handlers = {
     "DefaultIntent": function(){
