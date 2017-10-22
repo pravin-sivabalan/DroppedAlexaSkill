@@ -9,7 +9,7 @@ Alexa, open Dropped Music
 <br>
 Alexa, ask Dropped Music what's new
 <br>
-Alexa, ask Dropped Music for new Rap songs"
+Alexa, ask Dropped Music for new Rap songs
 
 ## Todo
 - [ ] Integrate into flash briefing
